@@ -141,3 +141,5 @@ server.post("/", function(req, res){
 server.listen(3000, function(){
 	console.log("iniciei o servidor");
 });
+
+server.listen(process.env.PORT || 3000);
