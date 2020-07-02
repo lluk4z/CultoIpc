@@ -1,0 +1,149 @@
+*{
+	box-sizing: border-box;
+}
+
+html, body{
+	margin: 0;
+}
+
+body{
+	display: flex;
+	flex-direction: column;
+
+	height: 100vh;
+
+	font-family: 'Roboto', sans-serif;
+
+	color:rgb(255, 107, 8);
+
+	background-image: linear-gradient(to bottom right, rgb(88, 87, 87), rgb(31, 30, 30));
+}
+
+header, main, footer {
+	text-align: center;
+}
+
+.logo{
+	width: 220px;
+	margin: 13px 0;
+}
+
+section.vagas{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.form{
+	/*
+	display: grid;
+	*/
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 45px;
+
+	align-items: center;
+
+	background-color: rgb(255, 107, 8);
+
+	padding: 16px 64px;
+
+	border-radius: 6px;
+}
+
+form input, form button, form select {
+	width: 100%;
+
+	margin-bottom: 4px;
+
+	box-sizing: border-box;
+
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+
+	border: 1px rgb(88, 87, 87) solid;
+}
+
+header, .form, main {
+	margin-bottom: 70px;
+	width: 90%;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+header button{
+	margin-top: 8px;
+	padding: 8px 16px;
+	border-radius: 4px;
+
+	background-color: rgb(255, 107, 8);
+
+	border: none;
+	color: white;
+}
+
+header h1, main h2 {
+	margin-bottom: 70px;
+}
+
+header h2{
+	color: rgb(240, 230, 230);
+}
+
+.form h2{
+	text-align: center;
+	color: rgb(224, 216, 216);
+	font-size: 18px;
+}
+
+footer{
+	margin-top: auto;
+
+	padding: 16px;
+
+	
+}
+
+span{
+	color: rgb(68, 67, 67);;
+}
+
+button:hover{
+	background-color: chocolate;
+}
+
+button:active{
+	background-color: burlywood;
+}
+
+section.form{
+	transition: all 300ms;
+}
+
+.quantidade{
+	color: aliceblue;
+}
+
+section.form.hide{
+	opacity: 0;
+	visibility: hidden;
+	height: 0;
+	margin-top: -70px;
+}
+
+/*
+ESTILO DO BANCO DE DADOS
+*/
+
+.infos{
+	margin-left: 20px;
+	margin-bottom: 20px;
+	margin-top: auto;
+	font-size: large;
+}

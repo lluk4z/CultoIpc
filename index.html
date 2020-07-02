@@ -1,0 +1,58 @@
+<htm>
+<head>
+	<title>IPC</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+		<img class="logo" src="2.png" alt="Logo IPC">
+		<h2>Confirme sua presença em um de nossos cultos do dia 05 de julho de 2020.</h2>
+		<p>Este formulário é de preenchimento individual.</p>
+		<button>Minha Vaga</button>
+	</header>
+
+	<section class="form hide">
+		<h2>Reserve a sua vaga</h2>
+		<form action="/" method="POST">
+			<input type="text" name="name" placeholder="Nome Completo">
+
+			<input type="text" name="cpf" placeholder="CPF">
+
+			<label>Horarios</label>
+			<select name="hora">
+				<option value="09h">09h</option>
+				<option value="15h30">15h30</option>
+				<option value="19h30">19h30</option>
+			</select>
+
+			<button>Reservar vaga</button>
+
+		</form>
+	</section>
+
+	<main>
+		<h2>Vagas restantes</h2>
+		
+		<section class="vagas">
+			<div class="vaga">
+				<div class="quantidade" id="hr01">{{ 45 - cont01 }}</div>
+				<p>Culto das 09h</p>
+			</div>
+			<div class="vaga">
+				<div class="quantidade" id="hr02">{{ 45 - cont02 }}</div>
+				<p>Culto das 15h30</p>
+			</div>
+			<div class="vaga">
+				<div class="quantidade" id="hr03">{{ 45 - cont03 }}</div>
+				<p>Culto das 19h30</p>
+			</div>
+		</section>
+	<main>
+
+	<footer> Com ❤ IPC </footer>
+
+	<script src="scripts.js"></script>
+</body>
+</html>

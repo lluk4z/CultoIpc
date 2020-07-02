@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>IPC</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<section class="infos">
+		{% for pes in pessoa %}
+			<div class="vaga">
+			<p>Nome:</p>
+			
+				<div class="quantidade" id="hr01">{{ pes.name }}</div>
+			
+			<p>CPF:</p>
+				<p div class="quantidade">{{ pes.cpf }}</p>
+			<label>Horário:</label>
+				<p div class="quantidade">{{ pes.hora }}</p>
+			</div>
+			<div class="quantidade">====================================</div>
+		{% endfor %}
+		</section>
+
+</body>
+</html>
