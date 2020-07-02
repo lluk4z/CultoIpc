@@ -10,11 +10,18 @@ server.use(express.urlencoded({ extended:true }));
 // configurar a conexao com o banco de dados
 const Pool = require('pg').Pool;
 const db = new Pool({
+	/*
 	user: 'postgres',
 	password: '0000',
 	host: 'localhost',
 	port: 5433,
 	database: 'culto'
+	*/
+	user: 'kfcwudeqzwwmot',
+	password: 'f7a44154bb6d7c9663357b4a2dcdfd69c0bd419be6a1f0949bc42485d61a6b1d',
+	host: 'ec2-34-224-229-81.compute-1.amazonaws.com',
+	port: 5432,
+	database: 'd7mrie8oqt1gtu'
 });
 
 // Configurando a template engine
