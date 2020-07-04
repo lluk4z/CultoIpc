@@ -36,6 +36,9 @@ cont01 = 0;
 cont02 = 0;
 cont03 = 0;
 
+
+cont04 = 0;
+
 //Testar CPF
 
 function TestaCPF(strCPF) {
@@ -77,6 +80,14 @@ server.get("/BancoDedados", function(req, res){
 	});
 	
 });
+
+// Segunda feira
+
+server.get("/CultoSegunda", function(req, res){
+	return res.render("segunda.html", { cont04 });
+});
+
+//================================================
 
 server.post("/", function(req, res){
 	//pegar dados do formulário
@@ -143,6 +154,58 @@ server.post("/", function(req, res){
 	});
 
 });
+
+//============ Rota do Culto da Segunda ================
+
+server.post("/CultoSegunda", function(req, res){
+	//pegar dados do formulário
+	const nome = req.body.nome
+	const cpfSegunda = req.body.cpfSegunda
+	
+
+	if(nome == "" || cpfSegunda == "" ){
+		return res.send("Todos os campos são obrigatórios.");
+	} else if(cpfSegunda != "" && TestaCPF(cpfSegunda) && nome !=""){
+		cont04++;
+	}
+
+	if(cont04 == 40){
+		
+		return res.send("O horário está cheio!");
+		
+	}
+
+	
+	if(!TestaCPF(cpf)){
+		return res.send("Informe um CPF válido!");
+	}
+
+	
+
+	//console.log(cont01);
+	//console.log(cont02);
+	//console.log(cont03);
+
+	// colocar valores dentro do banco de dados
+	const query = `INSERT INTO segunda("nome", "cpfSegunda")
+								 VALUES ($1, $2)`
+
+	const values = [nome, cpfSegunda];
+
+	db.query(query, values, function(err){
+		//fluxo de erro
+		if(err){
+			
+			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
+		} 
+		//fluxo ideal
+		return res.redirect("/CultoSegunda");
+	});
+
+});
+
+//====================================
+
 
 // Permitir acesso a porta 3000
 server.listen(3000, function(){

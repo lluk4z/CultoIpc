@@ -8,7 +8,7 @@
 <body>
 	<header>
 		<img class="logo" src="2.png" alt="Logo IPC">
-		<h2>Confirme sua presença em um de nossos cultos do dia 12 de julho de 2020.</h2>
+		<h2>Confirme sua presença no nosso CULTO DE ORAÇÃO do dia 13 de julho (SEGUNDA-FEIRA) de 2020.</h2>
 		<p>Este formulário é de preenchimento individual.</p>
 		<button>Minha Vaga</button>
 	</header>
@@ -16,16 +16,9 @@
 	<section class="form hide">
 		<h2>Reserve a sua vaga</h2>
 		<form action="/" method="POST">
-			<input type="text" name="name" placeholder="Nome Completo">
+			<input type="text" name="nome" placeholder="Nome Completo">
 
-			<input type="text" name="cpf" placeholder="CPF">
-
-			<label>Horarios</label>
-			<select name="hora">
-				<option value="09h">09h</option>
-				<option value="15h">15h</option>
-				<option value="19h">19h</option>
-			</select>
+			<input type="text" name="cpfSegunda" placeholder="CPF">
 
 			<button>Reservar vaga</button>
 
@@ -36,18 +29,12 @@
 		<h2>Vagas restantes</h2>
 		
 		<section class="vagas">
+		
 			<div class="vaga">
-				<div class="quantidade" id="hr01">{{ 40 - cont01 }}</div>
-				<p>Culto das 09h</p>
-			</div>
-			<div class="vaga">
-				<div class="quantidade" id="hr02">{{ 40 - cont02 }}</div>
-				<p>Culto das 15h30</p>
-			</div>
-			<div class="vaga">
-				<div class="quantidade" id="hr03">{{ 40 - cont03 }}</div>
+				<div class="quantidade" id="hr02">{{ 40 - cont04 }}</div>
 				<p>Culto das 19h30</p>
 			</div>
+	
 		</section>
 	<main>
 
