@@ -87,6 +87,17 @@ server.get("/CultoSegunda", function(req, res){
 	return res.render("CultoSegunda.html", { cont04 });
 });
 
+server.get("/CultoSegundaBD", function(req, res){
+	db.query("SELECT * FROM segunda ORDER BY nome", function(err, result){
+		if(err) return res.send("Erro de banco de dados.")
+
+		const segunda = result.rows
+
+		return res.render("CultoSegundaBD.html", { segunda });
+	});
+	
+});
+
 //================================================
 
 server.post("/", function(req, res){

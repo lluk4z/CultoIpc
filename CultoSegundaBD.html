@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>IPC</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<section class="infos">
+		{% for seg in segunda %}
+			<div class="vaga">
+			<p>Nome:</p>
+			
+				<div class="quantidade" id="hr01">{{ seg.nome }}</div>
+			
+			<p>CPF:</p>
+				<p div class="quantidade">{{ seg.cpfSegunda }}</p>
+
+			<div class="quantidade">====================================</div>
+		{% endfor %}
+		</section>
+
+</body>
+</html>
