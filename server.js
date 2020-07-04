@@ -206,7 +206,7 @@ server.post("/CultoSegunda", function(req, res){
 	db.query(query, values, function(err){
 		//fluxo de erro
 		if(err){
-			
+			cont04 = cont04-1;
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
 		} 
 		//fluxo ideal
