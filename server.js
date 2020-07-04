@@ -84,7 +84,7 @@ server.get("/BancoDedados", function(req, res){
 // Segunda feira
 
 server.get("/CultoSegunda", function(req, res){
-	return res.render("segunda.html", { cont04 });
+	return res.render("CultoSegunda.html", { cont04 });
 });
 
 //================================================
@@ -176,7 +176,7 @@ server.post("/CultoSegunda", function(req, res){
 	}
 
 	
-	if(!TestaCPF(cpf)){
+	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
 	}
 
