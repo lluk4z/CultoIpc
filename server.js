@@ -122,9 +122,11 @@ server.post("/", function(req, res){
 		cont03++;
 	}
 
-	if(cont01 >= 6 || cont02 >= 25 || cont03 >= 0){
+	if(cont01 >= 6 || cont02 >= 50 || cont03 >= 0){
 
-		
+		if(cont02 >= 25){
+			cont02 = cont02-1;
+		}
 		if(cont01 >= 6){
 			cont01 = cont01 -1;
 		}
@@ -140,7 +142,7 @@ server.post("/", function(req, res){
 	
 
 	console.log(cont01);
-	//console.log(cont02);
+	console.log(cont02);
 	//console.log(cont03);
 
 	// colocar valores dentro do banco de dados
