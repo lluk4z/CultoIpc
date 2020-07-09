@@ -140,7 +140,7 @@ server.post("/", function(req, res){
 		return res.send("O horário está cheio!");
 	}
 
-	if(cont02 >= 23){
+	if(cont02 >= 25){
 		cont02 = cont02 - 1;
 		return res.send("O horário está cheio!");
 	}
