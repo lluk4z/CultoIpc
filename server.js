@@ -122,7 +122,8 @@ server.post("/", function(req, res){
 		cont03++;
 	}
 
-	if(cont01 >= 6 || cont02 == 25 || cont03 >= 0){
+	/*
+	if(cont01 >= 6 || cont02 >= 25 || cont03 >= 0){
 
 		if(cont02 >= 25){
 			cont02 = cont02-1;
@@ -133,7 +134,7 @@ server.post("/", function(req, res){
 		return res.send("O horário está cheio!");
 		
 	}
-
+*/
 	
 	if(!TestaCPF(cpf)){
 		return res.send("Informe um CPF válido!");
