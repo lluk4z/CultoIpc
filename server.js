@@ -122,7 +122,7 @@ server.post("/", function(req, res){
 		cont03++;
 	}
 
-	if(cont01 >= 0 || cont02 >= 20 || cont03 >= 0){
+	if(cont01 >= 6 || cont02 >= 25 || cont03 >= 0){
 		
 		return res.send("O horário está cheio!");
 		
