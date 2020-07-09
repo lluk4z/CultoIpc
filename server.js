@@ -36,6 +36,7 @@ cont01 = 0;
 cont02 = 0;
 cont03 = 0;
 
+cont02aux = 0;
 
 cont04 = 0;
 
@@ -67,7 +68,7 @@ Soma = 0;
 
 // Apresentação da página
 server.get("/", function(req, res){
-	return res.render("index.html", { cont01, cont02, cont03 });
+	return res.render("index.html", { cont01, cont02aux, cont03 });
 });
 
 server.get("/BancoDedados", function(req, res){
@@ -122,8 +123,14 @@ server.post("/", function(req, res){
 		cont03++;
 	}
 
-	if(cont01 >= 6 || cont02 >= 25 || cont03 >= 0){
-		
+	if(cont01 >= 6 || cont02aux >= 25 || cont03 >= 0){
+
+		if(cont02aux >= 25){
+			cont02aux = cont02aux-1;
+		}
+		if(cont01 >= 6){
+			cont01 = cont01 -1;
+		}
 		return res.send("O horário está cheio!");
 		
 	}
