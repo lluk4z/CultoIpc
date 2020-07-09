@@ -122,7 +122,7 @@ server.post("/", function(req, res){
 		cont03++;
 	}
 
-	if(cont01 >= 6 || cont02 >= 50 || cont03 >= 0){
+	if(cont01 >= 6 || cont02 == 25 || cont03 >= 0){
 
 		if(cont02 >= 25){
 			cont02 = cont02-1;
