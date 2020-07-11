@@ -32,8 +32,7 @@ nunjucks.configure("./", {
 });
 
 // Banco de dados
-cont01 = `SELECT COUNT (*) FROM pessoa WHERE hora = '09h'`;
-parseInt(cont01, 10);
+cont01 = parseInt("SELECT COUNT (*) FROM pessoa WHERE hora = '09h'");
 cont02 = 0;
 cont03 = 0;
 
