@@ -32,9 +32,9 @@ nunjucks.configure("./", {
 });
 
 // Banco de dados
-cont01 = parseInt("SELECT COUNT (*) FROM pessoa WHERE hora = '09h'");
+cont01 = 0;
 cont02 = 0;
-cont03 = 0;
+cont03 = "SELECT COUNT (*) FROM pessoa WHERE hora = '19h";
 
 
 cont04 = 0;
@@ -110,19 +110,19 @@ server.post("/", function(req, res){
 		return res.send("Todos os campos são obrigatórios.");
 	}
 
-	/*
 	if(hora=="09h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !=""){
 		cont01++;
 	}
-	*/
+
 	if(hora=="15h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !=""){
 		cont02++;
 	}
 
+	/*
 	if(hora=="19h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !=""){
 		cont03++;
 	}
-
+*/
 	/*
 	if(cont01 >= 6 || cont02 >= 25 || cont03 >= 0){
 
@@ -136,8 +136,8 @@ server.post("/", function(req, res){
 		
 	}
 */
-	if(cont01 >= 40){
-		//cont01 = cont01 - 1;
+	if(cont01 >= 5){
+		cont01 = cont01 - 1;
 		return res.send("O horário está cheio!");
 	}
 
@@ -146,8 +146,8 @@ server.post("/", function(req, res){
 		return res.send("O horário está cheio!");
 	}
 
-	if(cont03 >= 0){
-		cont03 = cont03 - 1;
+	if(cont03 >= 40){
+		//cont03 = cont03 - 1;
 		return res.send("O horário está cheio!");
 	}
 
@@ -172,13 +172,13 @@ server.post("/", function(req, res){
 		//fluxo de erro
 		if(err){
 			if(hora == "09h"){
-				//cont01 = cont01-1;
+				cont01 = cont01-1;
 			}
 			if(hora == "15h"){
 				cont02 = cont02-1;
 			}
 			if(hora == "19h"){
-				cont03 = cont03-1;
+				//cont03 = cont03-1;
 			}
 			
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
