@@ -227,14 +227,15 @@ server.post("/CultoSegunda", function(req, res){
 	}
 */
 
-	/*
+	
 	var quantidade = qtd;
 
 	if (quantidade >= 44){
 		return res.send("HORARIO CHEIO!!!");
 	}
-	*/
 	
+	
+	/*
 	var sqlQtd = db.query(`SELECT * FROM segunda`, function(err, result){
 		return result.rowCount;
 	});
@@ -246,7 +247,7 @@ server.post("/CultoSegunda", function(req, res){
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
 	}
-	
+	*/
 	/*
 	exports.countElements = (req, res, next) => {
     const sql = 'SELECT COUNT (*) FROM segunda';
