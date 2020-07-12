@@ -26,6 +26,7 @@ const db = new Pool({
 
 // Configurando a template engine
 const nunjucks = require("nunjucks");
+const { Connection } = require("pg");
 nunjucks.configure("./", {
 	express: server,
 	noCache: true,
@@ -223,13 +224,13 @@ server.post("/CultoSegunda", function(req, res){
 		
 	}
 */
-	/*
-	var quantidade = qtd;
+	var sqlcont = "SELECT count (*) as total FROM segunda";
 
-	if (qtd >= 44){
-		return res.send("HORARIO CHEIO!!!");
-	}
-	*/
+	var query = db.query(sqlcont, function(err, result){
+		if(result.total >= 44){
+			return res.send("ESTA CHEIO!!");
+		}
+	});
 	
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
@@ -256,19 +257,6 @@ server.post("/CultoSegunda", function(req, res){
 		//fluxo ideal
 		return res.redirect("/CultoSegunda");
 	});
-
-	db.query(`SELECT COUNT (*) FROM segunda`, function(err, result){
-		
-		if(err){
-			return res.send("ERRO!!!!")
-		}
-		var quantidade = result.rowCount;
-		return res.redirect("/CultoSegunda");
-	});
-
-	if(quantidade > 44){
-		res.send("CHEIO!!!!");
-	}
 
 
 });
