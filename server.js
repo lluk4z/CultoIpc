@@ -32,9 +32,9 @@ nunjucks.configure("./", {
 });
 
 // Banco de dados
-var cont01 = 0;
-var cont02 = 0;
-var cont03 = 0;
+var cont01 = 40;
+var cont02 = 40;
+var cont03 = 40;
 
 
 cont04 = 0;
@@ -110,15 +110,15 @@ server.post("/", function(req, res){
 		return res.send("Todos os campos são obrigatórios.");
 	}
 
-	if(hora=="09h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !=""){
+	if(hora=="09h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !="" && cont01 < 40){
 		cont01++;
 	}
 
-	if(hora=="15h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !=""){
+	if(hora=="15h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !="" && cont02 < 40){
 		cont02++;
 	}
 
-	if(hora=="19h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !=""){
+	if(hora=="19h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !="" && cont03 < 40){
 		cont03++;
 	}
 
@@ -136,17 +136,17 @@ server.post("/", function(req, res){
 	}
 */
 	if(cont01 >= 0){
-		cont01 = cont01 - 1;
+		//cont01 = cont01 - 1;
 		return res.send("O horário está cheio!");
 	}
 
 	if(cont02 >= 0){
-		cont02 = cont02 - 1;
+		//cont02 = cont02 - 1;
 		return res.send("O horário está cheio!");
 	}
 
 	if(cont03 >= 0){
-		cont03 = cont03 - 1;
+		//cont03 = cont03 - 1;
 		return res.send("O horário está cheio!");
 	}
 
