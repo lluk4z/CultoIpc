@@ -89,11 +89,11 @@ server.get("/CultoSegunda", function(req, res){
 		if(err) return res.send("ERRO!!!")
 		var qtd = result.rowCount;
 
-		
+		/*
 		if(qtd >= 44){
 			return res.render("HORARIO CHEIO!!!");
 		}
-		
+		*/
 
 		return res.render("CultoSegunda.html", { qtd });
 	});
@@ -223,8 +223,13 @@ server.post("/CultoSegunda", function(req, res){
 		
 	}
 */
+	/*
+	var quantidade = qtd;
 
-	
+	if (qtd >= 44){
+		return res.send("HORARIO CHEIO!!!");
+	}
+	*/
 	
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
@@ -249,6 +254,14 @@ server.post("/CultoSegunda", function(req, res){
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
 		} 
 		//fluxo ideal
+		return res.redirect("/CultoSegunda");
+	});
+
+	db.query(`SELECT * FROM segunda`, function(err, result){
+		var quantidade = result.rowCount;
+		if(err || quantidade >= 44){
+			return res.send("ERRO!!!!")
+		}
 		return res.redirect("/CultoSegunda");
 	});
 
