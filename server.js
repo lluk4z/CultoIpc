@@ -32,7 +32,7 @@ nunjucks.configure("./", {
 });
 
 // Banco de dados
-cont01 = 0;
+cont01 = "SELECT COUNT (*) FROM pessoas AS pe WHERE pe.hora = '15h'";
 cont02 = 0;
 cont03 = 0;
 
@@ -110,9 +110,11 @@ server.post("/", function(req, res){
 		return res.send("Todos os campos são obrigatórios.");
 	}
 
+	/*
 	if(hora=="09h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !=""){
 		cont01++;
 	}
+	*/
 
 	if(hora=="15h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !=""){
 		cont02++;
@@ -136,7 +138,7 @@ server.post("/", function(req, res){
 	}
 */
 	if(cont01 >= 3){
-		cont01 = cont01 - 1;
+		//cont01 = cont01 - 1;
 		return res.send("O horário está cheio!");
 	}
 
@@ -171,7 +173,7 @@ server.post("/", function(req, res){
 		//fluxo de erro
 		if(err){
 			if(hora == "09h"){
-				cont01 = cont01-1;
+				//cont01 = cont01-1;
 			}
 			if(hora == "15h"){
 				cont02 = cont02-1;
