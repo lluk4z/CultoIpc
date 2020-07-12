@@ -223,13 +223,22 @@ server.post("/CultoSegunda", function(req, res){
 		
 	}
 */
-	
+
+	/*
 	var quantidade = qtd;
 
 	if (quantidade >= 44){
 		return res.send("HORARIO CHEIO!!!");
 	}
-	
+	*/
+
+	var sqlQtd = db.query(`SELECT COUNT (*) FROM segunda`, function(err, result){
+		return result.rowCount;
+	});
+
+	if(sqlQtd >= 44){
+		return res.send("O HORARIO ESTÁ CHEIO");
+	}
 	
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
