@@ -258,12 +258,18 @@ server.post("/CultoSegunda", function(req, res){
 	});
 
 	db.query(`SELECT * FROM segunda`, function(err, result){
-		var quantidade = result.rowCount;
-		if(err || quantidade >= 44){
+		
+		if(err){
 			return res.send("ERRO!!!!")
 		}
+		var quantidade = result.rowCount;
 		return res.redirect("/CultoSegunda");
 	});
+
+	if(quantidade > 44){
+		res.send("CHEIO!!!!");
+	}
+
 
 });
 
