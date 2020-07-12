@@ -100,9 +100,6 @@ server.get("/CultoSegunda", function(req, res){
 	
 });
 
-if(qtd >= 44){
-	return res.render("HORARIO CHEIO");
-}
 
 server.get("/CultoSegundaBD", function(req, res){
 	db.query("SELECT * FROM segunda ORDER BY nome", function(err, result){
@@ -226,13 +223,13 @@ server.post("/CultoSegunda", function(req, res){
 		
 	}
 */
-	/*
+	
 	var quantidade = qtd;
 
-	if (qtd >= 44){
+	if (quantidade >= 44){
 		return res.send("HORARIO CHEIO!!!");
 	}
-	*/
+	
 	
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
