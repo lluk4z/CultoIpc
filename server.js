@@ -235,7 +235,7 @@ server.post("/CultoSegunda", function(req, res){
 	}
 	*/
 	
-	var sqlQtd = db.query(`SELECT COUNT (*) FROM segunda`, function(err, result){
+	var sqlQtd = db.query(`SELECT * FROM segunda`, function(err, result){
 		return result.rowCount;
 	});
 
