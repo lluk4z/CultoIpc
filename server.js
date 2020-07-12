@@ -37,7 +37,7 @@ var cont02 = 0;
 var cont03 = 0;
 
 
-cont04 = 0;
+//cont04 = 0;
 
 //Testar CPF
 
@@ -87,11 +87,13 @@ server.get("/CultoSegunda", function(req, res){
 
 	db.query("SELECT * FROM segunda", function(err, result){
 		if(err) return res.send("ERRO!!!")
-		const qtd = result.rowCount;
+		var qtd = result.rowCount;
 
+		/*
 		if(qtd >= 44){
 			return res.render("HORARIO CHEIO!!!");
 		}
+		*/
 
 		return res.render("CultoSegunda.html", { qtd });
 	});
@@ -214,12 +216,17 @@ server.post("/CultoSegunda", function(req, res){
 		cont04++;
 	}
 
+	/*
 	if(cont04 == 40){
 		
 		return res.send("O horário está cheio!");
 		
 	}
+*/
 
+	if (qtd >= 44){
+		return res.send("HORARIO CHEIO!!!");
+	}
 	
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
