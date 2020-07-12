@@ -227,7 +227,7 @@ server.post("/CultoSegunda", function(req, res){
 	var sqlcont = "SELECT count (*) as total FROM segunda";
 
 	var query = db.query(sqlcont, function(err, result){
-		if(result.total >= 44){
+		if(result[0].total >= 44){
 			return res.send("ESTA CHEIO!!");
 		}
 	});
