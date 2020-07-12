@@ -212,10 +212,13 @@ server.post("/CultoSegunda", function(req, res){
 
 	if(nome == "" || cpfSegunda == "" ){
 		return res.send("Todos os campos são obrigatórios.");
-	} else if(cpfSegunda != "" && TestaCPF(cpfSegunda) && nome !=""){
+
+	} 
+	/*
+	else if(cpfSegunda != "" && TestaCPF(cpfSegunda) && nome !=""){
 		cont04++;
 	}
-
+*/
 	/*
 	if(cont04 == 40){
 		
@@ -239,11 +242,11 @@ server.post("/CultoSegunda", function(req, res){
 	if(sqlQtd >= 44){
 		return res.send("O HORARIO ESTÁ CHEIO");
 	}
-	
+	*/
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
 	}
-	*/
+	
 
 	exports.countElements = (req, res, next) => {
     const sql = 'SELECT COUNT (*) FROM segunda';
@@ -273,7 +276,7 @@ server.post("/CultoSegunda", function(req, res){
 	db.query(query, values, function(err){
 		//fluxo de erro
 		if(err){
-			cont04 = cont04-1;
+			//cont04 = cont04-1;
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
 		} 
 		//fluxo ideal
