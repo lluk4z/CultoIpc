@@ -168,7 +168,7 @@ server.post("/", function(req, res){
 
 	const values = [name, cpf, hora];
 
-	var qtd = `SELECT COUNT (*) FROM pessoa AS pes WHERE pe.hora = '15h'`
+	const qtd = `SELECT COUNT (*) FROM pessoa AS pes WHERE pe.hora = '15h'`
 
 
 
