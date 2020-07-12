@@ -226,11 +226,13 @@ server.post("/CultoSegunda", function(req, res){
 */
 	var sqlcont = "SELECT count (*) as total FROM segunda";
 
-	var query = db.query(sqlcont, function(err, result){
-		if(result[0].total >= 44){
-			return res.send("ESTA CHEIO!!");
-		}
+	var queryCont = db.query(sqlcont, function(err, result){
+		return result.rowCount;
 	});
+
+	if (queryCont >= 44){
+		return res.send("CHEIO HORAARIO!!!");
+	}
 	
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
