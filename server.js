@@ -243,11 +243,11 @@ server.post("/CultoSegunda", function(req, res){
 	if(sqlQtd >= 44){
 		return res.send("O HORARIO ESTÁ CHEIO");
 	}
-	
+	*/
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
 	}
-	*/
+	
 	
 	exports.countElements = (req, res, next) => {
     const sql = 'SELECT * FROM segunda';
