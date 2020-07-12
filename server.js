@@ -89,6 +89,10 @@ server.get("/CultoSegunda", function(req, res){
 		if(err) return res.send("ERRO!!!")
 		const qtd = result.rowCount;
 
+		if(qtd >= 44){
+			return res.render("HORARIO CHEIO!!!");
+		}
+
 		return res.render("CultoSegunda.html", { qtd });
 	});
 
