@@ -89,11 +89,11 @@ server.get("/CultoSegunda", function(req, res){
 		if(err) return res.send("ERRO!!!")
 		var qtd = result.rowCount;
 
-		/*
+		
 		if(qtd >= 44){
 			return res.render("HORARIO CHEIO!!!");
 		}
-		*/
+		
 
 		return res.render("CultoSegunda.html", { qtd });
 	});
@@ -224,9 +224,7 @@ server.post("/CultoSegunda", function(req, res){
 	}
 */
 
-	if (qtd >= 44){
-		return res.send("HORARIO CHEIO!!!");
-	}
+	
 	
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
