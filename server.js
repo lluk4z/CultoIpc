@@ -32,9 +32,9 @@ nunjucks.configure("./", {
 });
 
 // Banco de dados
-var cont01 = 40;
-var cont02 = 40;
-var cont03 = 40;
+var cont01 = 0;
+var cont02 = 0;
+var cont03 = 0;
 
 
 cont04 = 0;
@@ -84,7 +84,12 @@ server.get("/BancoDedados", function(req, res){
 // Segunda feira
 
 server.get("/CultoSegunda", function(req, res){
-	return res.render("CultoSegunda.html", { cont04 });
+
+	db.query("SELECT COUNT (*) FROM segunda", function(err, result){
+		const qtd = result;
+	});
+
+	return res.render("CultoSegunda.html", { qtd });
 });
 
 server.get("/CultoSegundaBD", function(req, res){
