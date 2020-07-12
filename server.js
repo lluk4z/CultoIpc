@@ -67,7 +67,7 @@ Soma = 0;
 
 // Apresentação da página
 server.get("/", function(req, res){
-	return res.render("index.html", { cont01, cont02, cont03 });
+	return res.render("index.html", { cont02, cont03 });
 });
 
 server.get("/BancoDedados", function(req, res){
