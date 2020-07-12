@@ -32,7 +32,7 @@ nunjucks.configure("./", {
 });
 
 // Banco de dados
-cont01 = "SELECT COUNT (*) FROM pessoas AS pe WHERE pe.hora = '15h'";
+//cont01 = 0;
 cont02 = 0;
 cont03 = 0;
 
@@ -109,13 +109,11 @@ server.post("/", function(req, res){
 	if(name == "" || cpf == "" || hora == ""){
 		return res.send("Todos os campos são obrigatórios.");
 	}
-
 	/*
 	if(hora=="09h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !=""){
 		cont01++;
 	}
 	*/
-
 	if(hora=="15h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !=""){
 		cont02++;
 	}
@@ -137,11 +135,12 @@ server.post("/", function(req, res){
 		
 	}
 */
+/*
 	if(cont01 >= 3){
-		//cont01 = cont01 - 1;
+		cont01 = cont01 - 1;
 		return res.send("O horário está cheio!");
 	}
-
+*/
 	if(cont02 >= 20){
 		cont02 = cont02 - 1;
 		return res.send("O horário está cheio!");
@@ -169,11 +168,19 @@ server.post("/", function(req, res){
 
 	const values = [name, cpf, hora];
 
-	db.query(query, values, function(err){
+	var qtd = `SELECT COUNT (*) FROM pessoa AS pes WHERE pe.hora = '15h'`
+
+
+
+	db.query(query, values, qtd, function(err){
 		//fluxo de erro
+		if(qtd >= 40){
+			return res.send("TA LOTADO");
+		}
 		if(err){
+			/*
 			if(hora == "09h"){
-				//cont01 = cont01-1;
+				cont01 = cont01-1;
 			}
 			if(hora == "15h"){
 				cont02 = cont02-1;
@@ -181,7 +188,7 @@ server.post("/", function(req, res){
 			if(hora == "19h"){
 				cont03 = cont03-1;
 			}
-			
+			*/
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
 		} 
 		//fluxo ideal
