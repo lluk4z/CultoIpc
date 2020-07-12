@@ -231,7 +231,7 @@ server.post("/CultoSegunda", function(req, res){
 		return res.send("HORARIO CHEIO!!!");
 	}
 	*/
-
+	/*
 	var sqlQtd = db.query(`SELECT COUNT (*) FROM segunda`, function(err, result){
 		return result.rowCount;
 	});
@@ -243,7 +243,21 @@ server.post("/CultoSegunda", function(req, res){
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
 	}
+	*/
 
+	exports.countElements = (req, res, next) => {
+    const sql = 'SELECT COUNT (*) FROM segunda';
+    postgres.query(sql, (err, result) => {
+        if (err) {
+            return res.status(500).json({ errors: [{ location: req.path, msg: 'Houve um erro'}] });
+        }
+        if (result.rows.length >= 44) {
+            return res.status(400).json({ errors: [{ location: req.path, msg: 'O HORARIO ESTÁ CHEIO'}] });
+        }
+        //...fazer suas coisas...
+        next();
+    });
+};
 	
 
 	//console.log(cont01);
