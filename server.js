@@ -86,7 +86,7 @@ server.get("/BancoDedados", function(req, res){
 server.get("/CultoSegunda", function(req, res){
 
 	db.query("SELECT COUNT (*) FROM segunda", function(err, result){
-		const qtd = result;
+		const qtd = result.rowCount;
 	});
 
 	return res.render("CultoSegunda.html", { qtd });
