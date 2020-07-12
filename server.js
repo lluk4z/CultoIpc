@@ -249,10 +249,10 @@ server.post("/CultoSegunda", function(req, res){
     const sql = 'SELECT COUNT (*) FROM segunda';
     postgres.query(sql, (err, result) => {
         if (err) {
-            return res.status(500).json({ errors: [{ location: req.path, msg: 'Houve um erro'}] });
+            return res.send("HOUVE UM ERRO")
         }
         if (result.rows.length >= 44) {
-            return res.status(400).json({ errors: [{ location: req.path, msg: 'O HORARIO ESTÁ CHEIO'}] });
+            return res.send("O HORARIO ESTÁ CHEIO");
         }
         //...fazer suas coisas...
         next();
