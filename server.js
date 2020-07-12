@@ -89,11 +89,11 @@ server.get("/CultoSegunda", function(req, res){
 		if(err) return res.send("ERRO!!!")
 		var qtd = result.rowCount;
 
-		
+		/*
 		if(qtd >= 44){
 			return res.render("HORARIO CHEIO!!!");
 		}
-		
+		*/
 
 		return res.render("CultoSegunda.html", { qtd });
 	});
@@ -203,6 +203,14 @@ server.post("/", function(req, res){
 });
 
 //============ Rota do Culto da Segunda ================
+
+var sqlQtd = db.query(`SELECT * FROM segunda`, function(err, result){
+	return result.rowCount;
+});
+
+if(sqlQtd >= 44){
+	return res.send("O HORARIO ESTÁ CHEIO");
+}
 
 server.post("/CultoSegunda", function(req, res){
 	//pegar dados do formulário
