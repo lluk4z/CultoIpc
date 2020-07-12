@@ -106,7 +106,7 @@ server.get("/CultoSegundaBD", function(req, res){
 	db.query("SELECT * FROM segunda ORDER BY nome", function(err, result){
 		if(err) return res.send("Erro de banco de dados.")
 
-		const segunda = result.rows
+		var segunda = result.rows
 
 		return res.render("CultoSegundaBD.html", { segunda });
 	});
@@ -224,7 +224,7 @@ server.post("/CultoSegunda", function(req, res){
 		
 	}
 */
-	var sqlcont = "SELECT count (*) as total FROM segunda";
+	var sqlcont = "SELECT * FROM segunda";
 
 	var queryCont = db.query(sqlcont, function(err, result){
 		return result.rowCount;
