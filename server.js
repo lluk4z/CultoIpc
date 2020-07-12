@@ -97,12 +97,12 @@ server.get("/CultoSegunda", function(req, res){
 
 		return res.render("CultoSegunda.html", { qtd });
 	});
-
-	if(qtd >= 44){
-		return res.render("HORARIO CHEIO");
-	}
 	
 });
+
+if(qtd >= 44){
+	return res.render("HORARIO CHEIO");
+}
 
 server.get("/CultoSegundaBD", function(req, res){
 	db.query("SELECT * FROM segunda ORDER BY nome", function(err, result){
