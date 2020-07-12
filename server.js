@@ -257,7 +257,7 @@ server.post("/CultoSegunda", function(req, res){
 		return res.redirect("/CultoSegunda");
 	});
 
-	db.query(`SELECT * FROM segunda`, function(err, result){
+	db.query(`SELECT COUNT (*) FROM segunda`, function(err, result){
 		
 		if(err){
 			return res.send("ERRO!!!!")
