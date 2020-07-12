@@ -32,9 +32,9 @@ nunjucks.configure("./", {
 });
 
 // Banco de dados
-cont01 = 0;
-cont02 = 0;
-cont03 = 0;
+var cont01 = 0;
+var cont02 = 0;
+var cont03 = 0;
 
 
 cont04 = 0;
