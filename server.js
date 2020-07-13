@@ -240,7 +240,7 @@ server.post("/CultoSegunda", function(req, res){
 
 	
 	
-	var sqlQtd = `SELECT * FROM segunda`
+	var sqlQtd = `SELECT COUNT (*) FROM segunda`
 		//return result.rowCount;
 
 /*
