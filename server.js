@@ -241,13 +241,16 @@ server.post("/CultoSegunda", function(req, res){
 	
 	
 	var sqlQtd = db.query(`SELECT * FROM segunda`, function(err, result){
-		return result.rowCount;
+		//return result.rowCount;
+		for(let i =0; i<result.rowCount; i++){
+			cont04++;
+		}
 	});
-
+/*
 	if(sqlQtd >= 44){
 		cont04 = 44;
 	}
-
+*/
 	if(cont04 >= 44){
 		return res.send("HORARIO CHEIO!!!");
 	}
