@@ -246,7 +246,9 @@ server.post("/CultoSegunda", function(req, res){
 			cont04++;
 		}
 			
-		
+		if(cont04 >= 44){
+			return res.send("HORARIO CHEIO!!!");
+		}
 		
 	});
 /*
@@ -254,9 +256,7 @@ server.post("/CultoSegunda", function(req, res){
 		cont04 = 44;
 	}
 */
-if(cont04 >= 44){
-	return res.send("HORARIO CHEIO!!!");
-}
+
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
 	}
