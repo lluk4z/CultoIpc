@@ -244,18 +244,19 @@ server.post("/CultoSegunda", function(req, res){
 		//return result.rowCount;
 		for(let i =0; i<result.rowCount; i++){
 			cont04++;
-			if(cont04 >= 44){
-				return res.send("HORARIO CHEIO!!!");
-			}
-		
 		}
+			
+		
+		
 	});
 /*
 	if(sqlQtd >= 44){
 		cont04 = 44;
 	}
 */
-
+if(cont04 >= 44){
+	return res.send("HORARIO CHEIO!!!");
+}
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
 	}
