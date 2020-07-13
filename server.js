@@ -37,7 +37,7 @@ var cont02 = 0;
 var cont03 = 0;
 
 
-//cont04 = 0;
+var cont04 = 0;
 
 //Testar CPF
 
@@ -204,14 +204,6 @@ server.post("/", function(req, res){
 
 //============ Rota do Culto da Segunda ================
 
-var sqlQtd = db.query(`SELECT * FROM segunda`, function(err, result){
-	return result.rowCount;
-});
-
-if(sqlQtd >= 44){
-	return res.send("O HORARIO ESTÁ CHEIO");
-}
-
 server.post("/CultoSegunda", function(req, res){
 	//pegar dados do formulário
 	const nome = req.body.nome
@@ -242,6 +234,14 @@ server.post("/CultoSegunda", function(req, res){
 		return res.send("HORARIO CHEIO!!!");
 	}
 	*/
+
+	if(qtd >= 44){
+		cont04 = 44;
+	}
+
+	if(cont04 >= 44){
+		return res.send("HORARIO CHEIO!!!");
+	}
 	
 	/*
 	var sqlQtd = db.query(`SELECT * FROM segunda`, function(err, result){
