@@ -235,23 +235,23 @@ server.post("/CultoSegunda", function(req, res){
 	}
 	*/
 
-	if(qtd >= 44){
+	
+
+
+	
+	
+	var sqlQtd = db.query(`SELECT * FROM segunda`, function(err, result){
+		return result.rowCount;
+	});
+
+	if(sqlQtd >= 44){
 		cont04 = 44;
 	}
 
 	if(cont04 >= 44){
 		return res.send("HORARIO CHEIO!!!");
 	}
-	
-	/*
-	var sqlQtd = db.query(`SELECT * FROM segunda`, function(err, result){
-		return result.rowCount;
-	});
 
-	if(sqlQtd >= 44){
-		return res.send("O HORARIO ESTÁ CHEIO");
-	}
-	*/
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
 	}
