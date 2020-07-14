@@ -204,7 +204,7 @@ server.post("/", function(req, res){
 
 //============ Rota do Culto da Segunda ================
 
-server.post("/CultoSegunda/telaConfirma", function(req, res){
+server.post("/CultoSegunda", function(req, res){
 	//pegar dados do formulário
 	const nome = req.body.nome
 	const cpfSegunda = req.body.cpfSegunda
@@ -268,7 +268,7 @@ server.post("/CultoSegunda/telaConfirma", function(req, res){
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
 		} 
 		//fluxo ideal
-		return res.redirect("/telaConfirma");
+		return res.redirect("/CultoSegunda");
 	});
 
 
