@@ -266,7 +266,7 @@ server.post("/CultoSegunda", function(req, res){
 		} 
 		//fluxo ideal
 
-		return res.redirect("/telaConfirma.html");
+		return res.render("/telaConfirma.html");
 	});
 
 
