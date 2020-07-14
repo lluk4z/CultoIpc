@@ -64,15 +64,15 @@ Soma = 0;
 
 //================
 
-var sqlCont01 = db.query("SELECT * FROM pessoa WHERE hora = '09h'", function(err, result){
+db.query("SELECT * FROM pessoa WHERE hora = '09h'", function(err, result){
 	if(err) return res.send("ERRO DE BANCO DE DADOS.")
-
-	return result.rowCount;
+	var qnt01 = result.rowCount;
+	
 });
 
 // Apresentação da página
 server.get("/", function(req, res){
-	return res.render("index.html", { sqlCont01, cont02, cont03 });
+	return res.render("index.html", { qnt01, cont02, cont03 });
 });
 
 server.get("/BancoDedados", function(req, res){
