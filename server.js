@@ -36,6 +36,9 @@ var cont01 = 0;
 var cont02 = 0;
 var cont03 = 0;
 
+function cnt01(){
+	return cont01;
+}
 
 var cont04 = 0;
 
@@ -64,15 +67,11 @@ Soma = 0;
 
 //================
 
-db.query("SELECT * FROM pessoa WHERE hora = '09h'", function(err, result){
-	if(err) return res.send("ERRO DE BANCO DE DADOS.")
-	var qnt01 = result.rowCount;
-	
-});
 
 // Apresentação da página
 server.get("/", function(req, res){
-	return res.render("index.html", { qnt01, cont02, cont03 });
+	conty01 = cnt01();
+	return res.render("index.html", { conty01, cont02, cont03 });
 });
 
 server.get("/BancoDedados", function(req, res){
@@ -129,8 +128,9 @@ server.post("/", function(req, res){
 		return res.send("Todos os campos são obrigatórios.");
 	}
 
-	if(hora=="09h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !="" && cont01 < 40){
-		cont01++;
+	if(hora=="09h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !="" && cnt01() < 40){
+		//cont01++;
+		cnt01()++;
 	}
 
 	if(hora=="15h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !="" && cont02 < 40){
@@ -154,7 +154,7 @@ server.post("/", function(req, res){
 		
 	}
 */
-	if(cont01 >= 0){
+	if(cnt01() >= 50){
 		//cont01 = cont01 - 1;
 		return res.send("O horário está cheio!");
 	}
@@ -190,7 +190,8 @@ server.post("/", function(req, res){
 		//fluxo de erro
 		if(err){
 			if(hora == "09h"){
-				cont01 = cont01-1;
+				//cont01 = cont01-1;
+				cnt01()--;
 			}
 			if(hora == "15h"){
 				cont02 = cont02-1;
