@@ -237,7 +237,7 @@ server.post("/CultoSegunda", function(req, res){
 		return result.rowCount;
 	});
 
-	if(rowCount > 50){
+	if(sqlCont >= 5){
 		return res.render("telaConfirma.html");
 	}
 	
