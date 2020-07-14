@@ -232,6 +232,10 @@ server.post("/CultoSegunda", function(req, res){
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
 	}
+
+	if(TestaCPF(cpfSegunda) && nome != "" && cpfSegunda != ""){
+		return res.render("telaConfirma.html");
+	}
 	
 /*	
 	exports.countElements = (req, res, next) => {
@@ -267,7 +271,7 @@ server.post("/CultoSegunda", function(req, res){
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
 		} 
 		//fluxo ideal
-		return res.render("/telaConfirma.html");
+		return res.redirect("/CultoSegunda");
 	});
 
 
