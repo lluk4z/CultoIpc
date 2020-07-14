@@ -233,13 +233,6 @@ server.post("/CultoSegunda", function(req, res){
 		return res.send("Informe um CPF válido!");
 	}
 
-	var sqlCont = db.query("SELECT * FROM segunda", function(err, result){
-		return result.rowCount;
-	});
-
-	if(sqlCont >= 5){
-		return res.render("telaConfirma.html");
-	}
 	
 /*	
 	exports.countElements = (req, res, next) => {
@@ -275,7 +268,7 @@ server.post("/CultoSegunda", function(req, res){
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
 		} 
 		//fluxo ideal
-		return res.redirect("/CultoSegunda");
+		return res.redirect("/CultoSegunda/telaConfirma");
 	});
 
 
