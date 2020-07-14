@@ -233,9 +233,7 @@ server.post("/CultoSegunda", function(req, res){
 		return res.send("Informe um CPF válido!");
 	}
 
-	if(TestaCPF(cpfSegunda) && nome != "" && cpfSegunda != ""){
-		return res.render("telaConfirma.html");
-	}
+
 	
 /*	
 	exports.countElements = (req, res, next) => {
@@ -274,6 +272,9 @@ server.post("/CultoSegunda", function(req, res){
 		return res.redirect("/CultoSegunda");
 	});
 
+	if(TestaCPF(cpfSegunda) && nome != "" && cpfSegunda != ""){
+		return res.render("telaConfirma.html");
+	}
 
 });
 
