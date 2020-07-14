@@ -20,7 +20,10 @@
 			<label>Horário:</label>
 				<p div class="quantidade">{{ pes.hora }}</p>
 			</div>
-			<a ref="/deletar/{{ pes.cpf }}"><button>APAGAR</button></a>
+			<form action="/" method="POST">
+				<input type="text" name="cpf" placeholder="CPF">
+				<button>Reservar vaga</button>
+			</form>
 			<div class="quantidade">====================================</div>
 		{% endfor %}
 		</section>
