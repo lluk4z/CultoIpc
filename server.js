@@ -175,17 +175,6 @@ server.post("/", function(req, res){
 	console.log(cont02);
 	//console.log(cont03);
 	
-	const queDEL = `DELETE FROM pessoa where cpf = $1`
-
-	const valDEL = cpf;
-
-	db.query(queDEL, valDEL, function(err){
-		if(!err){
-			return res.send("REGISTRO APAGADO COM SUCESSO!")
-		}else{
-			return res.send("ERRO!!!!");
-		}
-	});
 
 
 	// colocar valores dentro do banco de dados
