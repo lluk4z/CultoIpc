@@ -253,6 +253,10 @@ server.post("/CultoSegunda", function(req, res){
 	//console.log(cont02);
 	//console.log(cont03);
 
+	if(TestaCPF(cpfSegunda) && nome !="" && cpfSegunda !=""){
+		alert("HORÁRIO RESERVADO COM SUCESSO!");
+	}
+
 	// colocar valores dentro do banco de dados
 	const query = `INSERT INTO segunda("nome", "cpfSegunda")
 								 VALUES ($1, $2)`
@@ -266,7 +270,6 @@ server.post("/CultoSegunda", function(req, res){
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
 		} 
 		//fluxo ideal
-		alert("Inscrição realizada!");
 		return res.redirect("/CultoSegunda");
 	});
 
