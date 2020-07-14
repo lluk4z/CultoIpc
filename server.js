@@ -253,10 +253,11 @@ server.post("/CultoSegunda", function(req, res){
 	//console.log(cont02);
 	//console.log(cont03);
 
+	function alerta(){
 	if(TestaCPF(cpfSegunda) && nome !="" && cpfSegunda !=""){
 		alert("HORÁRIO RESERVADO COM SUCESSO!");
 	}
-
+	}
 	// colocar valores dentro do banco de dados
 	const query = `INSERT INTO segunda("nome", "cpfSegunda")
 								 VALUES ($1, $2)`
