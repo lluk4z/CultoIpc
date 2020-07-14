@@ -67,13 +67,23 @@ Soma = 0;
 
 // Apresentação da página
 server.get("/", function(req, res){
-	db.query("SELECT * FROM pessoa WHERE hora ='09h'","SELECT * FROM pessoa WHERE hora ='15h'", function(err, result01,result02,result03){
+	db.query("SELECT * FROM pessoa WHERE hora ='09h'", function(err, result){
 		if(err) return res.send("ERRO DE BANCO DE DADOS.")
 
-		var qtd01 = result01.rowCount;
-		var qtd02 = result02.rowCount;
+		var qtd01 = result.rowCount;
+		return res.render("index.html", { qtd01 });
+	});
+	db.query("SELECT * FROM pessoa WHERE hora ='15h'", function(err, result){
+		if(err) return res.send("ERRO DE BANCO DE DADOS.")
 
-		return res.render("index.html", { qtd01, qtd02, cont03 });
+		var qtd02 = result.rowCount;
+		return res.render("index.html", { qtd02 });
+	});
+	db.query("SELECT * FROM pessoa WHERE hora ='19h'", function(err, result){
+		if(err) return res.send("ERRO DE BANCO DE DADOS.")
+
+		var qtd03 = result.rowCount;
+		return res.render("index.html", { qtd03 });
 	});
 	
 });
