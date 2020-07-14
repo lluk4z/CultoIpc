@@ -64,28 +64,15 @@ Soma = 0;
 
 //================
 
+var sqlCont01 = db.query("SELECT * FROM pessoa WHERE hora = '09h'", function(err, result){
+	if(err) return res.send("ERRO DE BANCO DE DADOS.")
+
+	return result.rowCount;
+});
 
 // Apresentação da página
 server.get("/", function(req, res){
-	db.query("SELECT * FROM pessoa WHERE hora ='09h'", function(err, result){
-		if(err) return res.send("ERRO DE BANCO DE DADOS.")
-
-		var qtd01 = result.rowCount;
-		return res.render("index.html", { qtd01 });
-	});
-	db.query("SELECT * FROM pessoa WHERE hora ='15h'", function(err, result){
-		if(err) return res.send("ERRO DE BANCO DE DADOS.")
-
-		var qtd02 = result.rowCount;
-		return res.render("index.html", { qtd02 });
-	});
-	db.query("SELECT * FROM pessoa WHERE hora ='19h'", function(err, result){
-		if(err) return res.send("ERRO DE BANCO DE DADOS.")
-
-		var qtd03 = result.rowCount;
-		return res.render("index.html", { qtd03 });
-	});
-	
+	return res.render("index.html", { sqlCont01, cont02, cont03 });
 });
 
 server.get("/BancoDedados", function(req, res){
