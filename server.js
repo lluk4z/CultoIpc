@@ -204,7 +204,7 @@ server.post("/", function(req, res){
 
 //============ Rota do Culto da Segunda ================
 
-server.post("/CultoSegunda", "/telaConfirma", function(req, res){
+server.post("/CultoSegunda", function(req, res){
 	//pegar dados do formulário
 	const nome = req.body.nome
 	const cpfSegunda = req.body.cpfSegunda
