@@ -204,7 +204,7 @@ server.post("/", function(req, res){
 
 //============ Rota do Culto da Segunda ================
 
-server.post("/CultoSegunda", function(req, res){
+server.post("/CultoSegunda", "/telaConfirma", function(req, res){
 	//pegar dados do formulário
 	const nome = req.body.nome
 	const cpfSegunda = req.body.cpfSegunda
@@ -253,11 +253,7 @@ server.post("/CultoSegunda", function(req, res){
 	//console.log(cont02);
 	//console.log(cont03);
 
-	function alerta(){
-	if(TestaCPF(cpfSegunda) && nome !="" && cpfSegunda !=""){
-		alert("HORÁRIO RESERVADO COM SUCESSO!");
-	}
-	}
+
 	// colocar valores dentro do banco de dados
 	const query = `INSERT INTO segunda("nome", "cpfSegunda")
 								 VALUES ($1, $2)`
@@ -271,7 +267,7 @@ server.post("/CultoSegunda", function(req, res){
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
 		} 
 		//fluxo ideal
-		return res.redirect("/CultoSegunda");
+		return res.redirect("/telaConfirma");
 	});
 
 
