@@ -174,6 +174,16 @@ server.post("/", function(req, res){
 	console.log(cont01);
 	console.log(cont02);
 	//console.log(cont03);
+	
+	server.get('/deletar/:cpf', function(req, res){
+		pessoa.destroy({
+			where: { 'cpf': req.params.cpf}
+		}).then(function(){
+			res.send("REGISTRO APAGADO COM SUCESSO");
+		}).catch(function(erro){
+			res.send("ERRO!!!")
+		})
+	});
 
 	// colocar valores dentro do banco de dados
 	const query = `INSERT INTO pessoa("name", "cpf", "hora")
