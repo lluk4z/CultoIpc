@@ -233,7 +233,13 @@ server.post("/CultoSegunda", function(req, res){
 		return res.send("Informe um CPF válido!");
 	}
 
+	var sqlCont = db.query("SELECT * FROM segunda", function(err, result){
+		return result.rowCount;
+	});
 
+	if(rowCount >= 5){
+		return res.render("telaConfirma.html");
+	}
 	
 /*	
 	exports.countElements = (req, res, next) => {
@@ -272,9 +278,6 @@ server.post("/CultoSegunda", function(req, res){
 		return res.redirect("/CultoSegunda");
 	});
 
-	if(TestaCPF(cpfSegunda) && nome != "" && cpfSegunda != ""){
-		return res.render("telaConfirma.html");
-	}
 
 });
 
