@@ -267,7 +267,7 @@ server.post("/CultoSegunda", "/telaConfirma", function(req, res){
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
 		} 
 		//fluxo ideal
-		return res.redirect("/telaConfirma");
+		return res.render("/telaConfirma.html");
 	});
 
 
