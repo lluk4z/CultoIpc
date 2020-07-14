@@ -227,31 +227,6 @@ server.post("/CultoSegunda", function(req, res){
 	}
 */
 
-	/*
-	var quantidade = qtd;
-
-	if (quantidade >= 44){
-		return res.send("HORARIO CHEIO!!!");
-	}
-	*/
-
-	
-
-
-	
-	
-	var sqlQtd = `SELECT COUNT (*) FROM segunda`
-		//return result.rowCount;
-
-/*
-	if(sqlQtd >= 44){
-		cont04 = 44;
-	}
-*/
-
-if(sqlQtd.length >= 44){
-	return res.send("HORARIO CHEIO");
-}
 
 	if(!TestaCPF(cpfSegunda)){
 		return res.send("Informe um CPF válido!");
@@ -290,6 +265,7 @@ if(sqlQtd.length >= 44){
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
 		} 
 		//fluxo ideal
+		
 		return res.redirect("/CultoSegunda");
 	});
 
