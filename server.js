@@ -67,12 +67,13 @@ Soma = 0;
 
 // Apresentação da página
 server.get("/", function(req, res){
-	db.query("SELECT * FROM pessoa as pe WHERE pe.hora ='09h'", function(err, result){
+	db.query("SELECT * FROM pessoa WHERE hora ='09h'","SELECT * FROM pessoa WHERE hora ='15h'", function(err, result01,result02,result03){
 		if(err) return res.send("ERRO DE BANCO DE DADOS.")
 
-		var qtd01 = pe.rowCount;
+		var qtd01 = result01.rowCount;
+		var qtd02 = result02.rowCount;
 
-		return res.render("index.html", { qtd01, cont02, cont03 });
+		return res.render("index.html", { qtd01, qtd02, cont03 });
 	});
 	
 });
