@@ -67,7 +67,23 @@ Soma = 0;
 
 // Apresentação da página
 server.get("/", function(req, res){
-	return res.render("index.html", { cont01, cont02, cont03 });
+	db.query("SELECT * FROM pessoa WHERE hora = '09h'", function(err, result){
+		if(err) return res.send("ERRO!")
+		var cnt01 = result.rowCount;
+
+	db.query("SELECT * FROM pessoa WHERE hora = '15h'", function(err, result){
+		if(err) return res.send("ERRO!!")
+		var cnt02 = result.rowCount;
+	
+		db.query("SELECT * FROM pessoa WHERE hora = '19h'", function(err, result){
+			if(err) return res.send("ERRO!!")
+			var cnt03 = result.rowCount;
+			
+			return res.render("index.html", { cnt01, cnt02, cnt03 });
+		});
+	});
+	});
+	
 });
 
 server.get("/BancoDedados", function(req, res){
