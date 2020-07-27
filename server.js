@@ -71,16 +71,11 @@ server.get("/", function(req, res){
 		if(err) return res.send("ERRO!")
 		var cnt01 = result.rowCount;
 
-	db.query("SELECT * FROM pessoa WHERE hora = '15h'", function(err, result){
+	db.query("SELECT * FROM pessoa WHERE hora = '17h'", function(err, result){
 		if(err) return res.send("ERRO!!")
 		var cnt02 = result.rowCount;
-	
-		db.query("SELECT * FROM pessoa WHERE hora = '19h'", function(err, result){
-			if(err) return res.send("ERRO!!")
-			var cnt03 = result.rowCount;
 			
-			return res.render("index.html", { cnt01, cnt02, cnt03 });
-		});
+			return res.render("index.html", { cnt01, cnt02 });
 	});
 	});
 	
@@ -144,13 +139,15 @@ server.post("/", function(req, res){
 		cont01++;
 	}
 
-	if(hora=="15h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !="" && cont02 < 50){
+	if(hora=="17h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !="" && cont02 < 50){
 		cont02++;
 	}
 
+	/*
 	if(hora=="19h" && TestaCPF(cpf) && name != "" && cpf != "" && hora !="" && cont03 < 50){
 		cont03++;
 	}
+	*/
 
 	/*
 	if(cont01 >= 6 || cont02 >= 25 || cont03 >= 0){
@@ -175,11 +172,12 @@ server.post("/", function(req, res){
 		return res.send("O horário está cheio!");
 	}
 
+	/*
 	if( hora == '19h' && cont03 >= 0){
 		//cont03 = cont03 - 1;
 		return res.send("O horário está cheio!");
 	}
-
+	*/
 	
 	if(!TestaCPF(cpf)){
 		return res.send("Informe um CPF válido!");
@@ -205,11 +203,8 @@ server.post("/", function(req, res){
 			if(hora == "09h"){
 				cont01 = cont01-1;
 			}
-			if(hora == "15h"){
+			if(hora == "17h"){
 				cont02 = cont02-1;
-			}
-			if(hora == "19h"){
-				cont03 = cont03-1;
 			}
 			
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
