@@ -131,7 +131,7 @@ server.get("/CultoPlanoB", function(req, res){
 		if(err) return res.send("ERRO!!!")
 		var qtdPB = result.rowCount;
 
-		return res.render("CultoSegunda.html", { qtdPB });
+		return res.render("CultoPlanoB.html", { qtdPB });
 	});
 	
 });
