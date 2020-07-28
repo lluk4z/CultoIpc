@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>PLANO B</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<section class="infos">
+		{% for pb in planob %}
+			<div class="vaga">
+			<p>Nome:</p>
+			
+				<div class="quantidade" id="hr01">{{ pb.nomePB }}</div>
+			
+			<p>CPF:</p>
+				<p div class="quantidade">{{ pb.cpfPB }}</p>
+
+			</div>
+			<div class="quantidade">====================================</div>
+		{% endfor %}
+		</section>
+
+</body>
+</html>

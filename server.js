@@ -123,6 +123,30 @@ server.get("/CultoSegundaBD", function(req, res){
 	
 });
 
+// PLANO B
+
+server.get("/CultoPlanoB", function(req, res){
+
+	db.query("SELECT * FROM planob", function(err, result){
+		if(err) return res.send("ERRO!!!")
+		var qtdPB = result.rowCount;
+
+		return res.render("CultoSegunda.html", { qtdPB });
+	});
+	
+});
+
+server.get("/PlanoBBD", function(req, res){
+	db.query("SELECT * FROM planob ORDER BY nomePB", function(err, result){
+		if(err) return res.send("Erro de banco de dados.")
+
+		const planob = result.rows
+
+		return res.render("PlanoBBD.html", { planob });
+	});
+	
+});
+
 //================================================
 
 server.post("/", function(req, res){
@@ -286,6 +310,46 @@ server.post("/CultoSegunda", function(req, res){
 
 
 });
+
+//===== ROTA DO PLANO B ===============
+
+server.post("/PlanoB", function(req, res){
+	//pegar dados do formulário
+	const nomePB = req.body.nomePB
+	const cpfPB = req.body.cpfPB
+	
+
+	if(nomePB == "" || cpfPB == "" ){
+		return res.send("Todos os campos são obrigatórios.");
+
+	} 
+
+
+	if(!TestaCPF(cpfPB)){
+		return res.send("Informe um CPF válido!");
+	}
+
+
+
+	// colocar valores dentro do banco de dados
+	const query = `INSERT INTO segunda("nomePB", "cpfPB")
+								 VALUES ($1, $2)`
+
+	const values = [nomePB, cpfPB];
+
+	db.query(query, values, function(err){
+		//fluxo de erro
+		if(err){
+			//cont04 = cont04-1;
+			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
+		} 
+		//fluxo ideal
+		return res.redirect("/CultoPlanoB");
+	});
+
+
+});
+
 
 //====================================
 
