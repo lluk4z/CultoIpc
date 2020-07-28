@@ -332,7 +332,7 @@ server.post("/CultoPlanoB", function(req, res){
 
 
 	// colocar valores dentro do banco de dados
-	const query = `INSERT INTO segunda("nomePB", "cpfPB")
+	const query = `INSERT INTO planob("nomePB", "cpfPB")
 								 VALUES ($1, $2)`
 
 	const values = [nomePB, cpfPB];
