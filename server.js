@@ -137,7 +137,7 @@ server.get("/CultoPlanoB", function(req, res){
 });
 
 server.get("/PlanoBBD", function(req, res){
-	db.query("SELECT * FROM planob ORDER BY nomepb", function(err, result){
+	db.query("SELECT * FROM planob", function(err, result){
 		if(err) return res.send("Erro de banco de dados.")
 
 		const planob = result.rows
