@@ -335,10 +335,6 @@ server.post("/CultoPlanoB", function(req, res){
 		return res.send("Informe um CPF válido!");
 	}
 
-	if(!phoneValidate(fone)){
-		return res.send("Informe um número de telefone válido!");
-	}
-
 
 	// colocar valores dentro do banco de dados
 	const query = `INSERT INTO planob("nomePB", "cpfPB", "fone")
