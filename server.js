@@ -313,7 +313,7 @@ server.post("/CultoSegunda", function(req, res){
 
 //===== ROTA DO PLANO B ===============
 
-server.post("/PlanoB", function(req, res){
+server.post("/CultoPlanoB", function(req, res){
 	//pegar dados do formulário
 	const nomePB = req.body.nomePB
 	const cpfPB = req.body.cpfPB
