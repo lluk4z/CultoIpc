@@ -317,9 +317,10 @@ server.post("/CultoPlanoB", function(req, res){
 	//pegar dados do formulário
 	const nomePB = req.body.nomePB
 	const cpfPB = req.body.cpfPB
+	const fone = req.body.fone
 	
 
-	if(nomePB == "" || cpfPB == "" ){
+	if(nomePB == "" || cpfPB == "" || fone == ""){
 		return res.send("Todos os campos são obrigatórios.");
 
 	} 
@@ -332,10 +333,10 @@ server.post("/CultoPlanoB", function(req, res){
 
 
 	// colocar valores dentro do banco de dados
-	const query = `INSERT INTO planob("nomePB", "cpfPB")
-								 VALUES ($1, $2)`
+	const query = `INSERT INTO planob("nomePB", "cpfPB", "fone")
+								 VALUES ($1, $2, $3)`
 
-	const values = [nomePB, cpfPB];
+	const values = [nomePB, cpfPB, fone];
 
 	db.query(query, values, function(err){
 		//fluxo de erro
