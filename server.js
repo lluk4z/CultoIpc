@@ -64,6 +64,25 @@ Soma = 0;
 
 //================
 
+// Função para validar o telefone
+
+function phoneValidate($phone)
+    {
+        $regex = '/^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)?(?:((?:9\d|[2-9])\d{3})\-?(\d{4}))$/';
+
+        if (preg_match($regex, $phone) == false) {
+
+            // O número não foi validado.
+            return false;
+        } else {
+
+            // Telefone válido.
+            return true;
+        }        
+    }
+
+//================================
+
 
 // Apresentação da página
 server.get("/", function(req, res){
@@ -330,6 +349,9 @@ server.post("/CultoPlanoB", function(req, res){
 		return res.send("Informe um CPF válido!");
 	}
 
+	if(!phoneValidate(fone)){
+		return res.send("Informe um número de telefone válido!");
+	}
 
 
 	// colocar valores dentro do banco de dados
