@@ -261,13 +261,13 @@ server.post("/CultoSegunda", function(req, res){
 		cont04++;
 	}
 */
-	/*
-	if(cont04 == 40){
+	
+	if(cont04 >= 0){
 		
 		return res.send("O horário está cheio!");
 		
 	}
-*/
+
 
 
 
