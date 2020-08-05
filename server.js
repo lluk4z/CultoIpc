@@ -1,5 +1,6 @@
 const express = require("express");
 const server = express();
+const nodemailer = require("nodemailer");
 
 // Arquivos estáticos no servidor
 server.use(express.static('public'));
@@ -159,6 +160,7 @@ server.post("/", function(req, res){
 	const name = req.body.name
 	const cpf = req.body.cpf
 	const hora = req.body.hora
+	const email = req.body.email
 
 	if(name == "" || cpf == "" || hora == ""){
 		return res.send("Todos os campos são obrigatórios.");
@@ -212,6 +214,25 @@ server.post("/", function(req, res){
 		return res.send("Informe um CPF válido!");
 	}
 
+	// Mandar email
+	let transporter = nodemailer.createTransport({
+		service: 'gmail',
+		auth: {
+			user: 'culto.ipc@gmail.com',
+			pass: 'CultoIPC890'
+		}
+	});
+
+	transporter.sendMail({
+		from: "IPCandeias <culto.ipc@gmail.com>",
+		to: email,
+		subject: "Sua vaga para o culto foi confirmada!",
+		text: "Sua vaga está guardada. Obrigado pela presença. Apresente esse e-mail quando for ao culto. Até lá."
+	}).then(message => {
+		console.log(message);
+	}).catch(err => {
+		console.log(err);
+	});
 	
 
 	console.log(cont01);
