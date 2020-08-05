@@ -193,12 +193,12 @@ server.post("/", function(req, res){
 		
 	}
 */
-	if(cont01 >= 0 && hora == '09h'){
+	if(cont01 >= 50 && hora == '09h'){
 		//cont01 = cont01 - 1;
 		return res.send("O horário está cheio!");
 	}
 
-	if(cont02 >= 0 && hora == '17h'){
+	if(cont02 >= 50 && hora == '17h'){
 		//cont02 = cont02 - 1;
 		return res.send("O horário está cheio!");
 	}
