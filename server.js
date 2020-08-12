@@ -356,11 +356,6 @@ server.post("/CultoPlanoB", function(req, res){
 		return res.send("Informe um CPF válido!");
 	}
 	
-	let msgConfirma = document.getElementById("confirma");
-
-	
-	
-
 
 	// colocar valores dentro do banco de dados
 	const query = `INSERT INTO planob("nomePB", "cpfPB", "fone")
@@ -375,7 +370,7 @@ server.post("/CultoPlanoB", function(req, res){
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
 		} 
 		//fluxo ideal
-		return res.redirect("/CultoPlanoB", msgConfirma.innerHTML = "PARABÉNS! INSCRIÇÃO REALIZADA CON SUCESSO");
+		return res.redirect("/CultoPlanoB");
 	});
 
 
