@@ -157,13 +157,8 @@ server.get("/PlanoBBD", function(req, res){
 
 server.get("/CultoPlanoB/confirma", function(req, res){
 
-	db.query("SELECT * FROM planob", function(err, result){
-		if(err) return res.send("ERRO!!!")
-		var qtdPB = result.rowCount;
-
 		return res.render("telaConfirma.html");
-	});
-	
+		
 });
 
 //================================================
