@@ -153,6 +153,19 @@ server.get("/PlanoBBD", function(req, res){
 	
 });
 
+//Confirma
+
+server.get("/CultoPlanoB/confirma", function(req, res){
+
+	db.query("SELECT * FROM planob", function(err, result){
+		if(err) return res.send("ERRO!!!")
+		var qtdPB = result.rowCount;
+
+		return res.render("telaConfirma.html");
+	});
+	
+});
+
 //================================================
 
 server.post("/", function(req, res){
@@ -337,6 +350,7 @@ server.post("/CultoSegunda", function(req, res){
 
 });
 
+
 //===== ROTA DO PLANO B ===============
 
 server.post("/CultoPlanoB", function(req, res){
@@ -370,7 +384,7 @@ server.post("/CultoPlanoB", function(req, res){
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
 		} 
 		//fluxo ideal
-		return res.redirect("/CultoPlanoB");
+		return res.redirect("/CultoPlanoB/confirma");
 	});
 
 
