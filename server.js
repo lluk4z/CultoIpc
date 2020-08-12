@@ -358,9 +358,8 @@ server.post("/CultoPlanoB", function(req, res){
 	
 	let msgConfirma = document.getElementById("confirma");
 
-	if(nomePB != "" && cpfPB != "" && fone != "" && TestaCPF(cpfPB)){
-		msgConfirma.innerHTML = "PARABÉNS! INSCRIÇÃO REALIZADA CON SUCESSO";
-	}
+	
+	
 
 
 	// colocar valores dentro do banco de dados
@@ -376,7 +375,7 @@ server.post("/CultoPlanoB", function(req, res){
 			return res.send("Erro no banco de dados. Talvez o CPF já tenha sido cadadstrado.")
 		} 
 		//fluxo ideal
-		return res.redirect("/CultoPlanoB");
+		return res.redirect("/CultoPlanoB", msgConfirma.innerHTML = "PARABÉNS! INSCRIÇÃO REALIZADA CON SUCESSO");
 	});
 
 
