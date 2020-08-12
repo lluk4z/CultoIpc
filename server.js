@@ -355,6 +355,12 @@ server.post("/CultoPlanoB", function(req, res){
 	if(!TestaCPF(cpfPB)){
 		return res.send("Informe um CPF válido!");
 	}
+	
+	let msgConfirma = document.getElementById("confirma");
+
+	if(nomePB != "" && cpfPB != "" && fone != "" && TestaCPF(cpfPB)){
+		msgConfirma.innerHTML = "PARABÉNS! INSCRIÇÃO REALIZADA CON SUCESSO";
+	}
 
 
 	// colocar valores dentro do banco de dados
